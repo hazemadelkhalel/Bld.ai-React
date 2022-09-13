@@ -9,6 +9,7 @@ import Requirments from './Requirments';
 import CourseDescription from './CourseDesciption';
 import Footer from './footer'
 import Nav from './Nav';
+import CourseContentContainer from './courseContentContainer';
 class singleCourse extends Component {
     render() {
         return (
@@ -20,6 +21,11 @@ class singleCourse extends Component {
                 </div>
                 <WhatyouLearn/>
                 <Requirments/>
+                <div className='main-content'>
+                    <div className='sub-content'>
+                        <CourseContentContainer/>
+                    </div>
+                </div>
                 <CourseDescription/>
                 <Instructors/>
                 <Reviews/>
