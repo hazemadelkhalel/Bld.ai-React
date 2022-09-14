@@ -3,7 +3,7 @@ import './static/style/index.css';
 import Course from './course';
 import {filter} from './Nav'
 import {courses} from './FetchData';
-function Courses (){
+function Courses (props){
 	
 	// const [data,setData] = useState([]);
 	// let uri = 'https://www.udemy.com/api-2.0/courses/?search='+filter +'&fields[course]=@all&page_size=15';
@@ -20,8 +20,8 @@ function Courses (){
     // .then(_courses => {
 	// 	setData(_courses.results);
 	// });
-	// console.log(courses);
-	const Cur = courses.map(function (course) {
+	console.log(props.courses + "page2");
+	const Cur = props.courses?.map(function (course) {
 		return <Course key={course.id} course = {course} />;
 	});
 	return (

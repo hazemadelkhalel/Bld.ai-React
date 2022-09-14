@@ -1,35 +1,24 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import FetchData from './FetchData';
 import CreatePage1 from './Page1';
 import './static/style/index.css';
 
-function Nav () {
+function Nav (props) {
+   const [text, setText] = useState("");
+    const handleChange = (event)=>{
+         setText(event.target.value);
+    }
     const update = ()=>{
-        if(document.getElementById("searchbar").value.length === 0){
-            console.log("ahah1");
-            <React.Fragment>
-                <FetchData filter = {"python"}/>
-                <CreatePage1/>
-            </React.Fragment>
-        }
-        else{
-            console.log("ahah2");
-            console.log(document.getElementById("searchbar").value);
-            <React.Fragment>
-                <FetchData filter = {document.getElementById("searchbar").value}/>
-                <CreatePage1/>
-            </React.Fragment>
-
-        }
+        props.setSearchText(text);
     }
     return (
         <div className='nav-container'>
-            <img className='toggle' src ="/static/images/toggle.png"></img> 
+            <img className='toggle' src ="/static/images/toggle.png"></img>     
             <img className="icon" src="/static/images/Udemy_logo.png"></img>
             <button className="nav-text">Categories</button>
             <div className="searchbar">        
                 <button type="submit" id="search-btn" className="search-icon" onClick={update}></button>
-                <input  id = "searchbar" type="text" title="Search" placeholder="Search for anything" ></input>
+                <input  id = "searchbar" type="text" title="Search" placeholder="Search for anything"  value={text} onChange ={handleChange}></input>
                 <div id="myDropdown" className="dropdown-content"> </div>
             </div>
             <button className="nav-text">Udemy Business</button>
